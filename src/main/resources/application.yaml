@@ -1,0 +1,21 @@
+quarkus:
+  hibernate-orm:
+    database:
+      generation: drop-and-create
+    log:
+      sql: true
+    sql-load-script: import.sql
+  log:
+    category:
+      "io.quarkus.category":
+        level: INFO
+
+# Reactive config
+'%prod':
+  quarkus:
+    datasource:
+      reactive:
+        url: vertx-reactive:postgresql://localhost/quarkus_test
+      db-kind: postgresql
+      username: quarkus_test
+      password: quarkus_test
